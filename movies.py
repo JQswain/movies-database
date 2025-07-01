@@ -1,8 +1,6 @@
 import random
 import statistics
-import movie_storage_sql as storage
-
-
+from movie_storage import movie_storage_sql as storage
 
 
 def main_menu(menu_list):
@@ -72,7 +70,6 @@ def command_update_movie():
             print(f"{movie_to_update} now has the rating {new_rating}")
         except KeyError:
             print(f"{movie_to_update}, needs capital letters at the beginning of the words, please try again.")
-            movie_to_update = input("Enter the title of the movie to update it's rating: ")
 
     input("Press Enter to return to the menu...\n")
 
@@ -227,7 +224,7 @@ def serialize_data():
 
 
 def command_generate_website():
-    """First calls upon the serialize_data function in order to generate the index.html
+    """First calls upon the serialize_data function to generate the index.html
     to showcase the poster and title and year released of the database"""
     output = serialize_data()
 

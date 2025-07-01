@@ -9,7 +9,7 @@ API_KEY = os.getenv("API_KEY")
 API_URL = "https://www.omdbapi.com/?"
 DB_URL = "sqlite:///movies.db"
 
-engine = create_engine(DB_URL, echo=True)
+engine = create_engine(DB_URL, echo=False)
 
 with engine.connect() as connection:
     connection.execute(text("""
@@ -94,8 +94,3 @@ def update_movie(title, rating):
                 print(f"Movie '{title}' updated successfully.")
         except Exception as e:
             print(f"Error: {e}")
-
-add_movie('Big Fish')
-#print(list_movies())
-#update_movie('Big Fish', 2003, 3.2)
-#delete_movie('Big Fish')
